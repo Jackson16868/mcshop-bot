@@ -1,0 +1,24 @@
+{
+  "size": { "width": 2500, "height": 1686 },
+  "selected": true,
+  "name": "mcshop-main-menu",
+  "chatBarText": "開啟選單",
+  "areas": [
+    {
+      "bounds": { "x": 0, "y": 0, "width": 1250, "height": 843 },
+      "action": { "type": "message", "label": "預約維修", "text": "預約" }
+    },
+    {
+      "bounds": { "x": 1250, "y": 0, "width": 1250, "height": 843 },
+      "action": { "type": "message", "label": "我的預約", "text": "我的預約" }
+    },
+    {
+      "bounds": { "x": 0, "y": 843, "width": 1250, "height": 843 },
+      "action": { "type": "message", "label": "我的車輛", "text": "我的車輛" }
+    },
+    {
+      "bounds": { "x": 1250, "y": 843, "width": 1250, "height": 843 },
+      "action": { "type": "message", "label": "設定資料", "text": "設定" }
+    }
+  ]
+}
