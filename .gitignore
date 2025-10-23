@@ -1,18 +1,39 @@
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.build/
+dist/
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
 
-# venv
+# Virtualenv
 venv/
-.env
+.envrc
 
-# local db / sqlite
-*.db
-instance/
-
-# macOS
-.DS_Store
-
-# IDE
+# IDE / OS
 .vscode/
 .idea/
+.DS_Store
+
+# Logs
+*.log
+
+# Local env & secrets
+.env
+.env.*
+
+# SQLite (若你改用 sqlite)
+*.sqlite
+*.sqlite3
+
+# Coverage / reports
+htmlcov/
+.coverage
+.coverage.*
+.pyre/
