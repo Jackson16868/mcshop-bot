@@ -21,7 +21,7 @@ from flex_templates import (
     bubble_order_detail, carousel_orders_full,
     bubble_cancel_confirm, bubble_reschedule_picker,
     carousel_my_vehicles, bubble_settings,
-    bubble_new_booking_picker,
+    bubble_new_booking_picker,bubble_booking_success
 )
 
 load_dotenv()
@@ -726,7 +726,9 @@ def on_postback(event):
                 item = OrderItem(order_id=order.id, service_id=p.get("service_id"), qty=1, unit_price=0, subtotal=0)
                 db.session.add(item); db.session.commit()
                 reset_conv(conv)
-                return reply_text(api_client, event.reply_token, f"✅ 預約成功！\n訂單#{order.id} 時間：{when:%Y-%m-%d %H:%M}")
+                return reply_flex(api_client, event.reply_token, "預約成功",
+                                 bubble_booking_success(order.id, p))
+
 
             if data == "FLOW_CANCEL":
                 reset_conv(conv)

@@ -510,3 +510,43 @@ def bubble_settings(user):
         ]}
     }
 
+def bubble_booking_success(order_id, payload):
+    """
+    成功預約通知 Flex
+    """
+    return {
+        "type": "bubble",
+        "hero": {
+            "type": "image",
+            "url": "https://cdn-icons-png.flaticon.com/512/845/845646.png",
+            "size": "full",
+            "aspectRatio": "1.91:1",
+            "aspectMode": "cover"
+        },
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+                {"type": "text", "text": "✅ 預約成功！", "weight": "bold", "size": "xl", "color": "#00AA00"},
+                {"type": "separator", "margin": "md"},
+                {"type": "box", "layout": "vertical", "margin": "md", "contents": [
+                    {"type": "text", "text": f"訂單編號：#{order_id}", "size": "md"},
+                    {"type": "text", "text": f"車牌：{payload.get('plate','-')}", "size": "md"},
+                    {"type": "text", "text": f"服務項目：{payload.get('service','-')}", "size": "md"},
+                    {"type": "text", "text": f"預約時間：{payload.get('booked_at','-')}", "size": "md"},
+                ]}
+            ]
+        },
+        "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "contents": [
+                {
+                    "type": "button",
+                    "action": {"type": "postback", "label": "查看我的預約", "data": "BACK_MY_ORDERS"},
+                    "style": "primary", "color": "#2E86C1"
+                }
+            ]
+        }
+    }
