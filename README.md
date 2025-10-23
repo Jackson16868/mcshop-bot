@@ -38,3 +38,31 @@ cp .env.example .env
 export $(grep -v '^#' .env | xargs)
 python app.py
 # 服務會在 http://127.0.0.1:5001
+
+---
+
+## 💡 開發流程（協作建議）
+
+### 1️⃣ 取得專案
+```bash
+git clone git@github.com:Jackson16868/mcshop-bot.git
+cd mcshop-bot
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env
+# 編輯 .env 後執行
+python app.py
+
+git pull origin main
+
+git checkout -b feature/add-appointment
+# 或
+git checkout -b jackson-fix-richmenu
+
+git add .
+git commit -m "feat: 新增預約功能"
+git push origin feature/add-appointment
+
+git pull origin main
+git merge main
+
